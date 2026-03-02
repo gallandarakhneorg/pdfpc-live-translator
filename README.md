@@ -45,6 +45,7 @@ Install the libraries in the virtual environment
 ```bash
 ~/bin/python3_environments/live_translator/bin/pip install tk
 ~/bin/python3_environments/live_translator/bin/pip install pydub
+~/bin/python3_environments/live_translator/bin/pip install screeninfo
 ~/bin/python3_environments/live_translator/bin/pip install whisper
 ~/bin/python3_environments/live_translator/bin/pip install faster-whisper
 ```
