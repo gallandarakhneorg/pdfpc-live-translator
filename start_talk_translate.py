@@ -60,6 +60,17 @@ def parse_cli_arguments() -> object:
 	cli_parser.add_argument("--page", "-P", help="start the talk at the given page number (default: 1)",
 		default=1,
 		type=int)
+	cli_parser.add_argument("--inputbuffersize",
+		help=f"size in bytes of the audio input buffer",
+		default=-1,
+		type=int)
+	cli_parser.add_argument("--soundrate",
+		help=f"sound rate in Hz",
+		default=-1,
+		type=int)
+	cli_parser.add_argument("--bothlangs",
+		help=f"show the source and target messages",
+		action='store_true')
 	#return cli_parser.parse_args()
 	return cli_parser.parse_known_args()
 
@@ -126,6 +137,14 @@ def launch_overlay(cli_arguments : object) -> object:
 		arguments.append("--inputs")
 	if cli_arguments.screens:
 		arguments.append("--screens")
+	if cli_arguments.bothlangs:
+		arguments.append("--bothlangs")
+	if cli_arguments.inputbuffersize >= 0:
+		arguments.append("--inputbuffersize")
+		arguments.append(str(cli_arguments.inputbuffersize))
+	if cli_arguments.soundrate >= 0:
+		arguments.append("--soundrate")
+		arguments.append(str(cli_arguments.soundrate))
 	if cli_arguments.input >= 0:
 		arguments.append("--input")
 		arguments.append(str(cli_arguments.input))
